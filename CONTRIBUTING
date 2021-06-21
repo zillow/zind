@@ -1,0 +1,35 @@
+Contributions
+=============
+
+Contributions are welcome, greatly appreciated and overall helps to improve the ZInD scripts and data quality.
+
+Submitting Bugs, Features, and other Feedback
+---------------------------------------------
+
+We use `Github Issues <https://github.com/zillow/zind/issues>`_ to track all kinds of feedback around ZInD.
+Before creating a new issue, please search through the list to see if your bug or feature has already been reported. If not, feel free to open a new one.
+
+For bugs on the provided ZInD scripts, please include:
+- As much detailed information as you have about the bug itself
+- A minimal code example that reproduces the bug behavior
+- Your python version (``python --version``)
+- Versions for all packages in use (``pip list``)
+- Make sure to label the issues as ``bug``
+
+For new features and enhancements, please include:
+- An explanation of the feature
+- How it would work (code examples would be great)
+- Benefits and scope
+- If your enhancement involves a new set of annotations, acquired by you and not currently available by ZInD, those will be reviewed on a case-by-case basis.
+
+Fixing bugs and implementing features
+-------------------------------------
+
+Look through our `issue board <https://github.com/zillow/zind/issues>`_ with either ``kind:bug`` or ``kind:feature``. We prefer every pull request to include the following:
+
+- A link to the issue being fixed (please use Github's syntax like "Closes #number")
+- Code changes itself
+- Test cases
+- Documentation changes if there are any behavior or function, class, or object signature changes
+
+
