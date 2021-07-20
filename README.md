@@ -53,6 +53,8 @@ The 3D floor plans were generated from a sparse set of RGB panoramas using our p
 
 > Coming <del>Early</del> Late July
 
+A sample tour is given in `sample_tour`
+
 #### Preregistration
 If you are interested in downloading ZInD, please register an account on the [Bridge Platform](https://bridgedataoutput.com/register/zgindoor). During registration you will be required to agree to the [Zillow Data Terms of Use](https://bridgedataoutput.com/zillowterms). Before you take all these steps, however, we strongly suggest that you review the [FAQ](#what-are-the-conditions-for-using-zind) section first. Once ZInD is available for download, you will be notified.
 
@@ -62,6 +64,20 @@ For non-commercial, academic institutions outside US and Canada, please select O
 
 We will provide a script that will automatically download the data from the [Bridge Platform](https://bridgedataoutput.com/register/zgindoor), there is no need for you to interact with the API directly.
 
+#### Setup/Install
+Set up a conda environment:
+
+```
+conda create -n zind python=3.6
+conda activate zind
+```
+
+Install dependency libraries:
+
+```
+pip install -r requirements.txt
+```
+
 ### Properties and Stats :construction:
 
 > Coming <del>Early</del> Late July
@@ -70,9 +86,9 @@ We will provide a script that will automatically download the data from the [Bri
 
 > Coming <del>Early</del> Late July
 
-### Visualization :construction:
+### Visualization
 
-> Coming <del>Early</del> Late July
+> Run the visualization script `code/visualize_zind_cli.py`
 
 ## License
 
