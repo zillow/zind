@@ -138,6 +138,13 @@ Given the manner in which the panoramas were captured and annotated, there are s
   - There are floorplans with rooms labeled "master bedroom" and "master bathroom". These are deprecated terms; please consider them as "primary bedroom" and "primary bathroom," respectively.
   - There are floor plans with no scale (specifically, 'floor_XX' : None), and this is typically caused by issues in calibration.
 
+There are also rare cases of the following:
+  - Duplicates.
+  - Incorrectly annotated doors and windows, e.g., the top edge of a door reaches the ceiling.
+  - Annotators failing to refine poses of secondary panoramas.
+  - Severely underexposed panoramas due to incorrect merging of multiple exposures.
+  - Self intersecting geometry due to incorrect annotations.
+
 ## What was the capture protocol?
 
 To enable capturing entire home interiors at scale, we opted for sparse 360º panorama capture of every room in the home using an off-the-shelf 360º camera (such as Ricoh Theta V or Z1) paired with an iPhone. Photographers across 20 US cities were hired to do the capture. To ensure consistency in the capture process, they were given specific instructions, which include:
