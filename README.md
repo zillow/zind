@@ -134,7 +134,9 @@ Given the manner in which the panoramas were captured and annotated, there are s
   - For complex (non-flat) ceilings, the given height is only an approximation.
   - For "visible" geometry, note that partially visible geometries are locally clamped to what is observable, so that the extracted geometry would no longer be Manhattan (assuming the original room layout is).
   - "Complete" and "visible" geometry will not extend through doors, but only openings, since we don't collect annotations on whether a door is closed or open.
-  - The merger (pre-redraw) geometry and the final redraw geometry would not align perfectly due to the final human touch up in redraw to create a polished and globally consistent floor plan.   
+  - The merger (pre-redraw) geometry and the final redraw geometry would not align perfectly due to the final human touch up in redraw to create a polished and globally consistent floor plan.
+  - There are floorplans with rooms labeled "master bedroom" and "master bathroom". These are deprecated terms; please consider them as "primary bedroom" and "primary bathroom," respectively.
+  - There are floor plans with no scale (specifically, 'floor_XX' : None), and this is typically caused by issues in calibration.
 
 ## What was the capture protocol?
 
