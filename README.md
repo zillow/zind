@@ -62,7 +62,7 @@ For non-commercial, academic institutions outside US and Canada, please select O
 
 #### Batch Download
 
-We will provide a script that will automatically download the data from the [Bridge Platform](https://bridgedataoutput.com/register/zgindoor), there is no need for you to interact with the API directly.
+We will provide a script that will automatically download the data from the [Bridge Platform](https://bridgedataoutput.com/register/zgindoor), there is no need for you to interact with the API directly. Please note that the size of ZInD is about 40GB, so please make sure you have enough disk space before you start the download process.
 
 #### Setup/Install
 Set up a conda environment:
