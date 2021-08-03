@@ -69,7 +69,8 @@ Set up a conda environment:
 
 ```
 conda create -n zind python=3.6
-conda activate zind
+conda activate zind (Mac)
+activate zind (Windows)
 ```
 
 Install dependency libraries:
