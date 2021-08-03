@@ -2,4 +2,4 @@ requests
 tqdm
 opencv-python
 numpy==1.18.4
-shapely==1.6.4.post2
+shapely==1.7.0
