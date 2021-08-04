@@ -60,9 +60,8 @@ If you are interested in downloading ZInD, please register an account on the [Br
 
 For non-commercial, academic institutions outside US and Canada, please select Other as a State/Province.
 
-#### Batch Download
-
-We will provide a script that will automatically download the data from the [Bridge Platform](https://bridgedataoutput.com/register/zgindoor), there is no need for you to interact with the API directly. Please note that the size of ZInD is about 40GB, so please make sure you have enough disk space before you start the download process.
+#### Get Server Token for ZInD Access
+In [Bridge Platform API](https://bridgedataoutput.com/login), you can find the Server Token under `API ACCESS` Tab.
 
 #### Setup/Install
 Set up a conda environment:
@@ -77,6 +76,14 @@ Install dependency libraries:
 
 ```
 pip install -r requirements.txt
+```
+
+#### Batch Download
+
+Use `download_data.py` to automatically download the data from the [Bridge Platform](https://bridgedataoutput.com/register/zgindoor), there is no need for you to interact with the API directly. Please note that the size of ZInD is about 40GB, so please make sure you have enough disk space before you start the download process.
+
+```
+python download_data.py -s <server_token> -o <output_folder>
 ```
 
 ### Properties and Stats :construction:
