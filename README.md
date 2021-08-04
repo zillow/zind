@@ -98,6 +98,8 @@ python download_data.py -s <server_token> -o <output_folder>
 
 > Run the visualization script `code/visualize_zind_cli.py`
 
+The visualization results for the sample tour are in `render_data`.
+
 ## License
 
 The data is released under the [ZInD Terms of Use](https://bridgedataoutput.com/zillowterms), and the code is released under the [Apache License](LICENSE).
