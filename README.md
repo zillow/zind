@@ -51,12 +51,10 @@ The 3D floor plans were generated from a sparse set of RGB panoramas using our p
 
 ### Download :construction:
 
-> Coming <del>Early</del> Late July
-
 A sample tour is given in `sample_tour`
 
-#### Preregistration
-If you are interested in downloading ZInD, please register an account on the [Bridge Platform](https://bridgedataoutput.com/register/zgindoor). During registration you will be required to agree to the [Zillow Data Terms of Use](https://bridgedataoutput.com/zillowterms). Before you take all these steps, however, we strongly suggest that you review the [FAQ](#what-are-the-conditions-for-using-zind) section first. Once ZInD is available for download, you will be notified.
+#### Registration
+If you are interested in downloading ZInD, please register an account on the [Bridge Platform](https://bridgedataoutput.com/register/zgindoor). During registration you will be required to agree to the [Zillow Data Terms of Use](https://bridgedataoutput.com/zillowterms). Before you take all these steps, however, we strongly suggest that you review the [FAQ](#what-are-the-conditions-for-using-zind) section first. Once your request has been approved, you will be notified.
 
 For non-commercial, academic institutions outside US and Canada, please select Other as a State/Province.
 
@@ -88,11 +86,11 @@ python download_data.py -s <server_token> -o <output_folder>
 
 ### Properties and Stats :construction:
 
-> Coming <del>Early</del> Late July
+> Coming soon
 
 ## Tools :construction:
 
-> Coming <del>Early</del> Late July
+> Coming soon
 
 ### Visualization
 
