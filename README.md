@@ -51,7 +51,7 @@ The 3D floor plans were generated from a sparse set of RGB panoramas using our p
 
 ### Download
 
-A sample tour is given in `sample_tour`.
+A one-home sample tour is given in `sample_tour`.
 
 #### Registration for Download Request
 If you are interested in downloading ZInD, please register an account on the [Bridge Platform](https://bridgedataoutput.com/register/zgindoor). During registration you will be required to agree to the [Zillow Data Terms of Use](https://bridgedataoutput.com/zillowterms). Before you take all these steps, however, we strongly suggest that you review the [FAQ](#what-are-the-conditions-for-using-zind) section first. Once your request has been approved, you will be notified.
