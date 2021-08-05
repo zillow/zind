@@ -88,6 +88,17 @@ python download_data.py -s <server_token> -o <output_folder>
 
 > Coming soon
 
+### ZInD Partition
+
+ZInD is partitioned to train/val/test (0.8 : 0.1 : 0.1). Those splits have similar distributions under the following metrics:
+1. Layout complexities (cuboid, L-shape, etc.)
+2. Number of floors
+3. Number of primary panoramas
+4. Number of secondary panoramas
+5. Total area (to ensure that we have good balance between small/large homes)
+
+The recommended train/val/test splits are in `zind_partition.json`
+
 ## Tools :construction:
 
 > Coming soon
