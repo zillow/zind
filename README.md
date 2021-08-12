@@ -40,7 +40,7 @@ If you use the ZInD data or code please cite:
 ## Data
 
 ### Overview
-ZInD is an RGB 360º panoramas dataset containing 71,474 panoramas taken in 1,524 unfurnished residential homes, annotated with 3D room layouts, 2D bounding boxes for W/D/O, merged room layouts, 3D camera poses, and final 2D floor plans.
+ZInD is an RGB 360º panoramas dataset containing 71,474 panoramas taken in 1,575 unfurnished residential homes, annotated with 3D room layouts, 2D bounding boxes for W/D/O, merged room layouts, 3D camera poses, and final 2D floor plans.
 Please refer to [data organization](data_organization.md) for more details.
 
 ### Capture Process
