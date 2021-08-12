@@ -143,6 +143,8 @@ Zillow licenses ZInD for academic use only. ZInD is **not** licensed for commerc
   - *Unacceptable use*: You work at a non-academic institution, and you use data from ZInD to improve algorithms in a product or service.
   - *Unacceptable use*: You are a researcher at a university, and you collaborate with someone who works at a non-academic institution. While your main goal is to publish a paper, the results of your work based on ZInD data are incorporated in a product or service at that company.
 
+Please note that we need to be able to verify your academic credentials, ideally in the form of a website of the institute to which the requestor belongs. The email address should also reflect the institute. If we are unable to verify, we will reject the request. At this time, we are not able to accommodate requests for personal use.
+
 ## What are the important issues associated with the dataset that we need to be aware of?
 
 Given the manner in which the panoramas were captured and annotated, there are specific characteristics that needed to taken into consideration. Details can be found in the CVPR 2021 paper. Here we list some notable features/issues:
