@@ -99,6 +99,8 @@ ZInD is partitioned to train/val/test (0.8 : 0.1 : 0.1). Those splits have simil
 
 The recommended train/val/test splits are in `zind_partition.json`
 
+The partition script is available at `code/partition_zind.py`
+
 ## Tools :construction:
 
 > Coming soon
