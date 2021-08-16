@@ -1,3 +1,15 @@
+# """ Script to partition ZInD to train/val/test (0.8 : 0.1 : 0.1). 
+# The train/val/test splits will have similar distributions under the following metrics:
+# 1. Layout complexities (cuboid, L-shape, etc.)
+# 2. Number of floors
+# 3. Number of primary panoramas
+# 4. Number of secondary panoramas
+# 5. Total area (to ensure that we have good balance between small/large homes)
+
+# Example usage:
+# python partition_zind.py -i <input_folder> -o <output_folder>
+#
+
 import argparse
 import json
 import os
