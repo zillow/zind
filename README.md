@@ -40,7 +40,10 @@ If you use the ZInD data or code please cite:
 ## Data
 
 ### Overview
-ZInD is an RGB 360º panoramas dataset containing 71,474 panoramas taken in 1,575 unfurnished residential homes, annotated with 3D room layouts, 2D bounding boxes for W/D/O, merged room layouts, 3D camera poses, and final 2D floor plans.
+ZInD is an RGB 360º panoramas dataset containing 67,448 panoramas taken in 1,575 unfurnished residential homes, annotated with 3D room layouts, 2D bounding boxes for W/D/O, merged room layouts, 3D camera poses, and final 2D floor plans.
+
+**The stats reported here are slightly different from those reported in the CVPR paper. If you need to cite the stats, please use the stats reported here.**
+
 Please refer to [data organization](data_organization.md) for more details.
 
 ### Capture Process
@@ -84,9 +87,31 @@ Use `download_data.py` to automatically download the data from the [Bridge Platf
 python download_data.py -s <server_token> -o <output_folder>
 ```
 
-### Properties and Stats :construction:
+### Properties and Stats
 
-> Coming soon
+#### Statistics for 1,575 homes and 67,448 panoramas. pri = primary, sec = secondary, “# annotator spaces” refers to spaces identified by annotators (which include closets and hallways), and “# rooms” refers to complete room layouts.
+
+**Feature** | **Total** | **Avg Per Home**
+------------ | ------------- | ------------- 
+\# panoramas (pri) | 33210 | 21.086
+\# panoramas (sec) | 34238 | 21.738
+\# floor plans  | 2737 | 1.738
+\# annotator spaces | 29410 | 18.673
+\# rooms | 22484 | 14.276
+\# windows | 19403 | 12.319
+\# doors | 48759 | 30.958
+
+#### Statistics on different room layout types. Since L-shaped layouts are common, we report that separately from others that are also Manhattan. Those that are non-Manhattan typically have room corner angles of 135 degree.
+
+ **Layout Types** | **Cuboid** | **Manhattan-L** | **Manhattan-General** | **Non-Manhattan**
+------------ | ------------- | ------------- | ------------- | ------------- 
+\# Layouts | 11924 | 3273 | 2715 | 4572
+
+#### Statistics on room layout count based on number of room corners
+
+**\# Corners** | **4** | **5** | **6** | **7** | **8** | **9** | **10+**
+------------ | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- 
+\# Layouts | 11999 | 1002 | 3631 | 370 | 1416 | 154 | 3912
 
 ### ZInD Partition
 
