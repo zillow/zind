@@ -157,6 +157,7 @@ Finally, the Bridge team has also been instrumental in making ZInD release a rea
 - [What are the important issues associated with the dataset that we need to be aware of?](#what-are-the-important-issues-associated-with-the-dataset-that-we-need-to-be-aware-of)
 - [What was the capture protocol?](#what-was-the-capture-protocol)
 - [What was the annotation pipeline?](#what-was-the-annotation-pipeline)
+- [What if I would like to download ZInD for commercial purposes?](#what-if-i-would-like-to-download-zind-for-commercial-purposes)
 
 ## Can ZInD be downloaded free-of-charge?
 
@@ -220,3 +221,7 @@ Please refer to the [Supplementary Material](https://openaccess.thecvf.com/conte
 To reduce privacy concerns, we have automatically detected and removed any panoramas that contain:
 1. People or photographs of people to avoid sharing PI or PII information.
 2. Significant outdoor view, to avoid sharing street views or neighbouring properties.
+
+## What if I would like to download ZInD for commercial purposes?
+
+Please email [us](mailto:ZInD@zillowgroup.com), and we will forward your request to our business representative.
