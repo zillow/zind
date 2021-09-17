@@ -126,6 +126,10 @@ The recommended train/val/test splits are in `zind_partition.json`
 
 The partition script is available at `code/partition_zind.py`
 
+#### Published HorizonNet Evaluation 
+
+Our dataset and training split has changed since the time of original submission. As such, the published evaluation numbers should be reproduced with the newly released train/test/val split for any future publications.
+
 ## Tools :construction:
 
 > Coming soon
