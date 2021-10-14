@@ -140,6 +140,16 @@ Our dataset and training split has changed since the time of original submission
 
 The visualization results for the sample tour are in `render_data`.
 
+### Structure3D Conversion & Rendering
+Structured3D is a large-scale photo-realistic dataset containing 3.5K house designs proposed in a ECCV'21 [paper](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123540494.pdf). 
+To extend the compatibility and potential applications of our ZInD dataset, we provided python scripts which 
+convert original ZInD data format to Structure3D format with minimal modifications, and render the converted samples 
+for visualization purposes. The modifications are due to a few extra components (e.g., windows, doors, and openings). 
+In addition, we further provided the modified visualization scripts for visualizing the converted ZInD samples 
+in an interactive manner.
+
+A "s3d" branch is created for this update. Please see the scripts and details [here](https://github.com/zillow/zind/tree/s3d/code/s3d_visualization).
+
 ## License
 
 The data is released under the [ZInD Terms of Use](https://bridgedataoutput.com/zillowterms), and the code is released under the [Apache License](LICENSE).
