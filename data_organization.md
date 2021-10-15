@@ -21,42 +21,46 @@ We provide the **raw** (human-annotated) layouts for each panorama as well as th
 ```
 zind_data.json
 ├── scale_meters_per_coordinate
-│   └── floor_<floor_id>                         : float
+│   └── floor_<floor_id>                           : Union[float, None]
 │
 ├── merger
 │   └── floor_<floor_id>
 │       └── complete_room_<complete_room_id>
 │           └── partial_room_<partial_room_id>
 │               └── pano_<pano_id>
-│                   └── label                    : str
-│                   └── is_primary               : bool
-│                   └── is_inside                : bool
-│                   └── is_ceiling_flat          : bool
-│                   └── ceiling_height           : float
-│                   └── camera_height            : float
-│                   └── floor_number             : int
-│                   └── image_path               : str
-│                   └── layout_raw               : layout
-│                   └── layout_complete          : layout
-│                   └── layout_visible           : layout
+│                   └── label                      : str
+│                   └── is_primary                 : bool
+│                   └── is_inside                  : bool
+│                   └── is_ceiling_flat            : bool
+│                   └── ceiling_height             : float
+│                   └── camera_height              : float
+│                   └── floor_number               : int
+│                   └── image_path                 : str
+│                   └── layout_raw                 : layout
+│                   └── layout_complete            : layout
+│                   └── layout_visible             : layout
+|                   └── floor_plan_transformation
+|                       └── translation            : Tuple[float, float]
+|                       └── rotation               : float
+|                       └── scale                  : float
 │
 ├── redraw
 │   └── floor_<floor_id>
 │       └── room_<room_id>
-│           └── vertices                         : List[Tuple[float, float]]
-│           └── windows                          : List[Tuple[float, float]]
-│           └── doors                            : List[Tuple[float, float]]
+│           └── vertices                           : List[Tuple[float, float]]
+│           └── windows                            : List[Tuple[float, float]]
+│           └── doors                              : List[Tuple[float, float]]
 │           └── pins
 │               └── <pin_id>
-│                   └── position                 : Tuple[float, float]
-│                   └── label                    : str
+│                   └── position                   : Tuple[float, float]
+│                   └── label                      : str
 │
 ├── floorplan_to_redraw_transformation
 │   └── floor_<floor_id>
-│       └── translation                         : Tuple[float, float]
-│       └── rotation                            : float
-│       └── scale                               : float
-│       └── image_path                          : str
+│       └── translation                            : Tuple[float, float]
+│       └── rotation                               : float
+│       └── scale                                  : float
+│       └── image_path                             : str
 └──
 ```
 
@@ -99,7 +103,7 @@ layout
 | partial_room_id | Subfield within the complete room field containing information on a partial room, include information on the panorama used to generate its shape, locations of windows, doors, and openings, and other fields. |
 | pins | Subfield within "redraw" rooms containing semantic regional designations. |
 | redraw | Top level-structure containing "cleaned up" geometry information (as the final diagram shown to users). In addition to room geometry, windows, and doors, it also contains “pins” as labels. |
-| scale_meters_per_coordinate | Scale factor that maps coordinates of a given floor to actual scale in meters. |
+| scale_meters_per_coordinate | Scale factor that maps coordinates of a given floor to actual scale in meters. This can be None for some floors (or whole tours) due to calibration or annotation issues. |
 | vertices | Subfield containing list of 2D vertices (found under a few different fields). |
 | windows | Subfield containing information on window location (found under a few different fields). |
 
