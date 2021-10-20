@@ -11,6 +11,7 @@ import sys
 from typing import List, Dict, Any
 
 import numpy as np
+
 from utils import Point2D
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
@@ -82,13 +83,11 @@ class Transformation2D(
         """
         coordinates = coordinates.dot(self.rotation_matrix) * self.scale
         coordinates += self.translation
-
         return coordinates
 
     def apply_inverse(self, coordinates):
         coordinates -= self.translation
         coordinates = coordinates.dot(self.rotation_matrix.T) / self.scale
-
         return coordinates
 
 
@@ -96,8 +95,6 @@ class TransformationSpherical:
     """
     Class to handle various spherical transformations.
     """
-
-    EPS = np.deg2rad(1)  # Absolute precision when working with radians.
 
     def __init__(self):
         pass
@@ -140,37 +137,78 @@ class TransformationSpherical:
         # Azimuth angle is in [-pi, pi].
         # Note the x-axis flip to align the handedness of the pano and room shape coordinate systems.
         theta = np.arctan2(-x_arr, y_arr)
-
         # Radius can be anything between (0, inf)
         rho = np.sqrt(np.sum(np.square(points_cart), axis=1))
         phi = np.arcsin(z_arr / rho)  # Map elevation to [-pi/2, pi/2]
         return np.column_stack((theta, phi, rho)).reshape(output_shape)
 
-    @classmethod
-    def sphere_to_pixel(cls, points_sph: np.ndarray, width: int) -> np.ndarray:
+    @staticmethod
+    def sphere_to_cartesian(points_sph: np.ndarray) -> np.ndarray:
+        """
+        Convert spherical coordinates to cartesian.
+        """
+        EPS = np.deg2rad(1)
+        if not isinstance(points_sph, np.ndarray) or points_sph.ndim == 1:
+            points_sph = np.reshape(points_sph, (1, -1))
+            output_shape = (3,)
+        else:
+            output_shape = (points_sph.shape[0], 3)  # type: ignore
+        num_points = points_sph.shape[0]
+        assert num_points > 0
+        num_coords = points_sph.shape[1]
+        assert num_coords == 2 or num_coords == 3
+        theta = points_sph[:, 0]
+        # Validate the azimuthal angles.
+        assert np.all(np.greater_equal(theta, -math.pi - EPS))
+        assert np.all(np.less_equal(theta, math.pi + EPS))
+        phi = points_sph[:, 1]
+        # Validate the elevation angles.
+        assert np.all(np.greater_equal(phi, -math.pi / 2.0 - EPS))
+        assert np.all(np.less_equal(phi, math.pi / 2.0 + EPS))
+        if num_coords == 2:
+            rho = np.ones_like(theta)
+        else:
+            rho = points_sph[:, 2]
+        # Validate the radial distances.
+        assert np.all(np.greater(rho, 0.0))
+        rho_cos_phi = rho * np.cos(phi)
+        x_arr = rho_cos_phi * np.sin(theta)
+        y_arr = rho * np.sin(phi)
+        z_arr = -rho_cos_phi * np.cos(theta)
+        return np.column_stack((x_arr, y_arr, z_arr)).reshape(output_shape)
+
+    @staticmethod
+    def cartesian_product(*arrays: List[Any], flip_axis: bool = False):
+        """Compute the cartesian product of a set of arrays."""
+        len_arr = len(arrays)
+        arr = np.empty(
+            [len(a) for a in arrays] + [len_arr], dtype=np.result_type(*arrays)
+        )
+        for i, a in enumerate(np.ix_(*arrays)):
+            arr[..., i] = a
+        res = arr.reshape(-1, len_arr)
+        return res if not flip_axis else np.fliplr(res)
+
+    @staticmethod
+    def sphere_to_pixel(points_sph: np.ndarray, width: int) -> np.ndarray:
         """
         Convert spherical coordinates to pixel coordinates inside a 360 pano image with a given width.
         """
+        EPS = np.deg2rad(1)
         output_shape = (points_sph.shape[0], 2)  # type: ignore
-
         num_points = points_sph.shape[0]
         assert num_points > 0
-
         num_coords = points_sph.shape[1]
         assert num_coords == 2 or num_coords == 3
-
         height = width / 2
         assert width > 1 and height > 1
-
         # We only consider the azimuth and elevation angles.
         theta = points_sph[:, 0]
-        assert np.all(np.greater_equal(theta, -math.pi - cls.EPS))
-        assert np.all(np.less_equal(theta, math.pi + cls.EPS))
-
+        assert np.all(np.greater_equal(theta, -math.pi - EPS))
+        assert np.all(np.less_equal(theta, math.pi + EPS))
         phi = points_sph[:, 1]
-        assert np.all(np.greater_equal(phi, -math.pi / 2.0 - cls.EPS))
-        assert np.all(np.less_equal(phi, math.pi / 2.0 + cls.EPS))
-
+        assert np.all(np.greater_equal(phi, -math.pi / 2.0 - EPS))
+        assert np.all(np.less_equal(phi, math.pi / 2.0 + EPS))
         # Convert the azimuth to x-coordinates in the pano image, where
         # theta = 0 maps to the horizontal center.
         x_arr = theta + math.pi  # Map to [0, 2*pi]

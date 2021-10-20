@@ -73,3 +73,40 @@ class Polygon(
     def to_shapely_line(self):
         # Use this function when converting W/D/O elements since those are represented as lines.
         return shapely.geometry.LineString(self.to_list)
+
+
+def compute_dot_product(x_prev, y_prev, x_curr, y_curr, x_next, y_next):
+    """Compute the oriented angle (in radians) given the camera position and
+    two vertices.
+    """
+    vec_prev = np.array([x_prev - x_curr, y_prev - y_curr])
+    vec_prev_norm = np.linalg.norm(vec_prev)
+    vec_next = np.array([x_next - x_curr, y_next - y_curr])
+    vec_next_norm = np.linalg.norm(vec_next)
+    # The function expects non-degenerate case, e.g if one of the line is a point, then this will fail
+    return np.dot(vec_prev, vec_next) / (vec_prev_norm * vec_next_norm)
+
+
+def remove_collinear(room_vertices):
+    room_vertices_updated = []
+    for idx_curr, vert_curr in enumerate(room_vertices):
+        idx_prev = idx_curr - 1
+        if idx_prev < 0:
+            idx_prev = len(room_vertices) - 1
+        idx_next = idx_curr + 1
+        if idx_next >= len(room_vertices):
+            idx_next = 0
+        vert_prev = room_vertices[idx_prev]
+        vert_next = room_vertices[idx_next]
+        angle = compute_dot_product(
+            vert_prev[0],
+            vert_prev[1],
+            vert_curr[0],
+            vert_curr[1],
+            vert_next[0],
+            vert_next[1],
+        )
+        if abs(abs(angle) - 1.0) < 1e-3:
+            continue
+        room_vertices_updated.append([vert_curr[0], vert_curr[1]])
+    return np.asarray(room_vertices_updated)

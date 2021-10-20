@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Dict, Any, List
 
 import numpy as np
+
 from transformations import Transformation2D
 from utils import Polygon, PolygonType, PolygonTypeMapping
 

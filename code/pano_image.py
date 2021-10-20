@@ -7,11 +7,13 @@ pano_image_cv = pano_image.opencv_image     # Access the underlying OpenCV repre
 """
 
 import logging
+import math
 import sys
 from typing import Tuple
 
 import cv2
 import numpy as np
+
 from transformations import TransformationSpherical
 from utils import Image
 
@@ -298,3 +300,59 @@ class PanoImage:
         dist_right = abs(pt2_pix[0, 0] - mid_pt_pix[0, 0])
 
         return dist_total > width / 2.0 or dist_left + dist_right > dist_total + 1
+
+    def rotate_pano(self, rot: np.matrix):
+        """Rotate a pano image by the given rotation matrix.
+
+        Note:
+        We are using a coordinate system where the 3D cartesian x-axis maps to
+        the horizontal image axis and the 3D cartesian y-axis maps to the
+        vertical image axis, and finally the 3D cartesian z-axis maps inwards
+        the panorama image plane. Thus a rotation around the y-axis would
+        correspond to panning the panorama left-to-right or right-to-left.
+        Rotation around the x-axis would correspond to looking up/down, and
+        rotation around the z-axis would correspond to tilting the camera, e.g.
+        this will "tilt" the straight horizontal lines in the equirectangular
+        spherical projection that we are assuming.
+
+        Args:
+            pano_image: The source pano image (will not be modified).
+
+            rot: The 3-by-3 rotation matrix.
+
+        Return:
+            The rotated panorama image.
+        """
+        assert self._has_valid_fov
+        width = self.width
+        height = self.height
+        theta = np.linspace(start=-math.pi, stop=math.pi, num=width)
+        fov_half = math.pi / 2.0
+        # each pixel corresponds to a
+        phi = np.linspace(start=fov_half, stop=-fov_half, num=height)
+        points_sph_col_major = np.asarray(
+            TransformationSpherical.cartesian_product(phi, theta)
+        )
+        points_sph = np.fliplr(points_sph_col_major)
+        points_cart = TransformationSpherical.sphere_to_cartesian(points_sph)
+        rot_inv = rot.T
+        points_cart_rot = np.matmul(rot_inv, points_cart.T).T
+        points_cart_rot_arrange = np.asarray(
+            [points_cart_rot[:, 0], -points_cart_rot[:, 2], points_cart_rot[:, 1]]
+        ).T
+        points_sph_rot = TransformationSpherical.cartesian_to_sphere(
+            points_cart_rot_arrange
+        )
+        points_pix_rot = TransformationSpherical.sphere_to_pixel(points_sph_rot, width)
+
+        # Convert to OpenCV compatible maps for cv2.remap.
+        map_x = points_pix_rot[:, 0].reshape((height, width)).astype(np.float32)
+        map_y = points_pix_rot[:, 1].reshape((height, width)).astype(np.float32)
+        img_dst_cv = cv2.remap(
+            self.opencv_image,
+            map_x,
+            map_y,
+            interpolation=cv2.INTER_CUBIC,
+            borderMode=cv2.BORDER_REPLICATE,
+        )
+        return PanoImage(img_dst_cv)
