@@ -6,7 +6,7 @@
 
 ## Structure3D
 
-Structured3D is a large-scale photo-realistic dataset containing 3.5K house designs proposed in a ECCV'21 [paper](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123540494.pdf). To extend the compatibility 
+Structured3D is a large-scale photo-realistic dataset containing 3.5K house designs proposed in a ECCV'20 [paper](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123540494.pdf). To extend the compatibility 
 and potential applications of our ZInD dataset, we provided python scripts which converts original ZInD data format
 to Structure3D format with minimal modifications, and rendering the converted samples for visualization purpose. The modifications are due to a few extra components (e.g., windows, 
 doors, and openings). In addition, we further provided the modified visualization scripts for visualizing the converted
