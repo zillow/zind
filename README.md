@@ -138,6 +138,12 @@ Our dataset and training split has changed since the time of original submission
 
 > Run the visualization script `code/visualize_zind_cli.py`
 
+```
+python code/visualize_zind_cli.py -i sample_tour -o <output_folder> --visualize-layout --visualize-floor-plan --raw --complete --visible --primary --secondary
+```
+
+More examples about how to run the visualization script can be found [here](https://github.com/zillow/zind/blob/main/code/visualize_zind_cli.py#L14)
+
 The visualization results for the sample tour are in `render_data`.
 
 ### Structure3D Conversion & Rendering
