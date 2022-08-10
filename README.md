@@ -57,7 +57,7 @@ The 3D floor plans were generated from a sparse set of RGB panoramas using our p
 A one-home sample tour is given in `sample_tour`.
 
 #### Registration for Download Request
-If you are interested in downloading ZInD, please register an account on the [Bridge Platform](https://bridgedataoutput.com/register/zgindoor). During registration you will be required to agree to the [Zillow Data Terms of Use](https://bridgedataoutput.com/zillowterms). Before you take all these steps, however, we strongly suggest that you review the [FAQ](#what-are-the-conditions-for-using-zind) section first. Once your request has been approved, you will be notified.
+If you are interested in downloading ZInD, please register an account on the [Bridge Platform](https://bridgedataoutput.com/register/zgindoor). During registration you will be required to agree to the [Zillow Data Terms of Use](https://bridgedataoutput.com/zillowterms). Before you take all these steps, however, we strongly suggest that you review the [FAQ](#what-are-the-conditions-for-using-zind) section first. Once your request has been approved, you will be notified. *Please do not contact us unless it has been over two weeks since the request was made.*
 
 For non-commercial, academic institutions outside US and Canada, please select Other as a State/Province.
 
@@ -174,6 +174,7 @@ Finally, the Bridge team has also been instrumental in making ZInD release a rea
 
 - [Can ZInD be downloaded free-of-charge?](#spell-check-doesnt-work-how-do-i-enable-it)
 - [What are the conditions for using ZInD?](#what-are-the-conditions-for-using-zind)
+- [How long do I wait after requesting for ZInD download?](#how-long-do-i-wait-after-requesting-for-zind-download)
 - [What are the important issues associated with the dataset that we need to be aware of?](#what-are-the-important-issues-associated-with-the-dataset-that-we-need-to-be-aware-of)
 - [What was the capture protocol?](#what-was-the-capture-protocol)
 - [What was the annotation pipeline?](#what-was-the-annotation-pipeline)
@@ -192,6 +193,10 @@ Zillow licenses ZInD for academic use only. ZInD is **not** licensed for commerc
   - *Unacceptable use*: You are a researcher at a university, and you collaborate with someone who works at a non-academic institution. While your main goal is to publish a paper, the results of your work based on ZInD data are incorporated in a product or service at that company.
 
 Please note that we need to be able to verify your academic credentials, ideally in the form of a website of the institute to which the requestor belongs. *The email address should also reflect the institute.* If we are unable to verify, we will reject the request. At this time, we are not able to accommodate requests for personal use.
+
+## How long do I wait after requesting for ZInD download?
+
+Please note that the approval process is *manual*. The decision to approve or deny the request may take up to two weeks.
 
 ## What are the important issues associated with the dataset that we need to be aware of?
 
