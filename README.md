@@ -134,10 +134,6 @@ The partition script is available at `code/partition_zind.py`
 
 Our dataset and training split has changed since the time of original submission. As such, the published evaluation numbers should be reproduced with the newly released train/test/val split for any future publications.
 
-## Tools :construction:
-
-> Coming soon
-
 ### Visualization
 
 > Run the visualization script `code/visualize_zind_cli.py`
