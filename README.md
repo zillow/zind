@@ -89,7 +89,7 @@ python download_data.py -s <server_token> -o <output_folder>
 
 #### CoVis Score Table
 
-The CoVis scores used in the paper can be found [here](https://github.com/zillow/zind/blob/0ac5dd8f53c8687c4a71d8fff28d80db31d15033/covis_scores.csv). The field names are self-explanatory.
+The CoVis scores used in the paper can be found [here](https://raw.githubusercontent.com/zillow/zind/0ac5dd8f53c8687c4a71d8fff28d80db31d15033/covis_scores.csv). The field names are self-explanatory.
 
 ### Properties and Stats
 
