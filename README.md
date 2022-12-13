@@ -87,6 +87,10 @@ Use `download_data.py` to automatically download the data from the [Bridge Platf
 python download_data.py -s <server_token> -o <output_folder>
 ```
 
+#### CoVis Score Table
+
+The CoVis scores used in the paper can be found [here](https://github.com/zillow/zind/blob/0ac5dd8f53c8687c4a71d8fff28d80db31d15033/covis_scores.csv). The field names are self-explanatory.
+
 ### Properties and Stats
 
 #### Statistics for 1,575 homes and 67,448 panoramas. pri = primary, sec = secondary, “# annotator spaces” refers to spaces identified by annotators (which include closets and hallways), and “# rooms” refers to complete room layouts.
